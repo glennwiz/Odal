@@ -13,7 +13,8 @@ main :: proc() {
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
-		rl.DrawCircle(500, 500, 5, rl.YELLOW)
+		rl.DrawCircle(400, 600, 5, rl.YELLOW)
+		rl.DrawCircle(600, 600, 5, rl.YELLOW)
 		rl.EndDrawing()
 	}
 }
