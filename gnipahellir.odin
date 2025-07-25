@@ -21,38 +21,35 @@ main :: proc() {
 
 	gem: f32 = 0.01
 	for !rl.WindowShouldClose() {
-		rx += m.cos(m.to_radians(f32(135)))
-		ry -= m.sin(m.to_radians(f32(135)))
-		lx += m.cos(m.to_radians(f32(45)))
-		ly -= m.sin(m.to_radians(f32(45)))
-
+		if flipped == true {
+			rx += m.cos(m.to_radians(f32(45)))
+			ry -= m.sin(m.to_radians(f32(45)))
+			lx += m.cos(m.to_radians(f32(135)))
+			ly -= m.sin(m.to_radians(f32(135)))
+		} else {
+			rx += m.cos(m.to_radians(f32(135)))
+			ry -= m.sin(m.to_radians(f32(135)))
+			lx += m.cos(m.to_radians(f32(45)))
+			ly -= m.sin(m.to_radians(f32(45)))
+		}
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.BLACK)
 		gem += 0.01
 		col := m.sin_f32(gem) * 255
-		if lx < 600 && done == false {
-
+		if done == false && lx < 600 {
 			append(&line_points_l, rl.Vector2{lx, ly})
 			append(&line_points_r, rl.Vector2{rx, ry})
 
 			rl.DrawCircle(i32(lx), i32(ly), 5, rl.ColorFromHSV(col, 1, 1))
 			rl.DrawCircle(i32(rx), i32(ry), 5, rl.ColorFromHSV(col, 1, 1))
 		} else {
-			tly := rx
-			tlx := ry
-
-			rx = lx
-			ry = ly
-
-			lx = tly
-			ly = tlx
-
+			fmt.println("-flipped")
 			flipped = true
 		}
 
-		if flipped == true && lx > 500 {
+		if flipped == true && ly < 300 {
+			fmt.println("--Done")
 			done = true
-
 		}
 
 		for l_point, c in line_points_l {
@@ -65,9 +62,7 @@ main :: proc() {
 			if c < len(line_points_r) - 1 {
 				rl.DrawLineV(r_point, line_points_r[c + 1], rl.YELLOW)
 			}
-
 		}
-
 
 		rl.EndDrawing()
 	}
