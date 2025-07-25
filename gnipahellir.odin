@@ -16,6 +16,7 @@ main :: proc() {
 	flipped := false
 	done := false
 
+	gem: f32 = 0.01
 	for !rl.WindowShouldClose() {
 		rx += m.cos(m.to_radians(f32(135)))
 		ry -= m.sin(m.to_radians(f32(135)))
@@ -23,10 +24,11 @@ main :: proc() {
 		ly -= m.sin(m.to_radians(f32(45)))
 
 		rl.BeginDrawing()
-
+		gem += 0.01
+		col := m.sin_f32(gem) * 255
 		if lx < 600 && done == false {
-			rl.DrawCircle(i32(lx), i32(ly), 5, rl.YELLOW)
-			rl.DrawCircle(i32(rx), i32(ry), 5, rl.YELLOW)
+			rl.DrawCircle(i32(lx), i32(ly), 5, rl.ColorFromHSV(col, 1, 1))
+			rl.DrawCircle(i32(rx), i32(ry), 5, rl.ColorFromHSV(col, 1, 1))
 		} else {
 			tly := rx
 			tlx := ry
