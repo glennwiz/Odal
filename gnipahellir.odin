@@ -27,6 +27,7 @@ main :: proc() {
 		ly -= m.sin(m.to_radians(f32(45)))
 
 		rl.BeginDrawing()
+		rl.ClearBackground(rl.BLACK)
 		gem += 0.01
 		col := m.sin_f32(gem) * 255
 		if lx < 600 && done == false {
