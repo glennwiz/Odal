@@ -13,7 +13,8 @@ main :: proc() {
 	lx: f32 = 400
 	ly: f32 = 600
 
-	fliped := false
+	flipped := false
+	done := false
 
 	for !rl.WindowShouldClose() {
 		rx += m.cos(m.to_radians(f32(135)))
@@ -23,7 +24,7 @@ main :: proc() {
 
 		rl.BeginDrawing()
 
-		if lx < 600 {
+		if lx < 600 && done == false {
 			rl.DrawCircle(i32(lx), i32(ly), 5, rl.YELLOW)
 			rl.DrawCircle(i32(rx), i32(ry), 5, rl.YELLOW)
 		} else {
@@ -36,7 +37,12 @@ main :: proc() {
 			lx = tly
 			ly = tlx
 
-			fliped = true
+			flipped = true
+		}
+
+		if flipped == true && lx > 500 {
+			done = true
+
 		}
 
 
