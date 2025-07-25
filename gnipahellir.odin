@@ -13,6 +13,8 @@ main :: proc() {
 	lx: f32 = 400
 	ly: f32 = 600
 
+	fliped := false
+
 	for !rl.WindowShouldClose() {
 		rx += m.cos(m.to_radians(f32(135)))
 		ry -= m.sin(m.to_radians(f32(135)))
@@ -34,7 +36,7 @@ main :: proc() {
 			lx = tly
 			ly = tlx
 
-
+			fliped = true
 		}
 
 
