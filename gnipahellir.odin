@@ -3,6 +3,8 @@ import "core:fmt"
 import m "core:math"
 import rl "vendor:raylib"
 
+line_points: [dynamic]rl.Vector2
+
 main :: proc() {
 	rl.InitWindow(1000, 1000, "")
 	defer rl.CloseWindow()
