@@ -54,6 +54,19 @@ main :: proc() {
 
 		}
 
+		for l_point, c in line_points_l {
+			if c < len(line_points_l) - 1 {
+				rl.DrawLineV(l_point, line_points_l[c + 1], rl.YELLOW)
+			}
+		}
+
+		for r_point, c in line_points_r {
+			if c < len(line_points_r) - 1 {
+				rl.DrawLineV(r_point, line_points_r[c + 1], rl.YELLOW)
+			}
+
+		}
+
 
 		rl.EndDrawing()
 	}
