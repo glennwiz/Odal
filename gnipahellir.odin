@@ -3,7 +3,8 @@ import "core:fmt"
 import m "core:math"
 import rl "vendor:raylib"
 
-line_points: [dynamic]rl.Vector2
+line_points_r: [dynamic]rl.Vector2
+line_points_l: [dynamic]rl.Vector2
 
 main :: proc() {
 	rl.InitWindow(1000, 1000, "")
@@ -29,6 +30,10 @@ main :: proc() {
 		gem += 0.01
 		col := m.sin_f32(gem) * 255
 		if lx < 600 && done == false {
+
+			append(&line_points_l, rl.Vector2{lx, ly})
+			append(&line_points_r, rl.Vector2{rx, ry})
+
 			rl.DrawCircle(i32(lx), i32(ly), 5, rl.ColorFromHSV(col, 1, 1))
 			rl.DrawCircle(i32(rx), i32(ry), 5, rl.ColorFromHSV(col, 1, 1))
 		} else {
