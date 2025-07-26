@@ -38,11 +38,14 @@ main :: proc() {
 }
 
 draw_spinner :: proc() {
+	for i in f32(0) ..< 4 {
+		angle := gem + i * m.PI / 2
+		x := 500 + m.cos_f32(angle) * radius
+		y := 500 + m.sin_f32(angle) * radius
 
-	x := 500 + m.cos_f32(gem) * radius
-	y := 500 + m.sin_f32(gem) * radius
+		rl.DrawCircle(i32(x), i32(y), 5, rl.YELLOW)
 
-	rl.DrawCircle(i32(x), i32(y), 5, rl.YELLOW)
+	}
 }
 
 set_loc :: proc() {
