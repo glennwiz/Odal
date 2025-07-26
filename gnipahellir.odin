@@ -36,15 +36,14 @@ main :: proc() {
 		rl.EndDrawing()
 	}
 }
-
+point_count: f32 = 16
 draw_spinner :: proc() {
-	for i in f32(0) ..< 4 {
-		angle := gem + i * m.PI / 2
+	for i in f32(0) ..< point_count {
+		angle := gem + i * m.PI / (point_count / 2)
 		x := 500 + m.cos_f32(angle) * radius
-		y := 500 + m.sin_f32(angle) * radius
+		y := 400 + m.sin_f32(angle) * radius
 
 		rl.DrawCircle(i32(x), i32(y), 5, rl.YELLOW)
-
 	}
 }
 
