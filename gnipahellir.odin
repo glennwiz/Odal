@@ -22,7 +22,7 @@ main :: proc() {
 	rl.SetTargetFPS(60)
 
 	for !rl.WindowShouldClose() {
-
+		radius = m.sin_f32(gem) * 100
 		set_loc()
 
 		rl.BeginDrawing()
@@ -69,12 +69,10 @@ draw_odal :: proc() {
 		rl.DrawCircle(i32(lx), i32(ly), 5, rl.ColorFromHSV(col, 1, 1))
 		rl.DrawCircle(i32(rx), i32(ry), 5, rl.ColorFromHSV(col, 1, 1))
 	} else {
-		fmt.println("-flipped")
 		flipped = true
 	}
 
 	if flipped == true && ly < 300 {
-		fmt.println("--Done")
 		done = true
 	}
 
