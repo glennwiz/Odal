@@ -1,1 +1,1 @@
-![WindowsTerminal_696dWMokKG](https://github.com/user-attachments/assets/080a40d1-b974-40d4-a482-27ddbd961ce5)
+![WindowsTerminal_khnuNfZr6r](https://github.com/user-attachments/assets/bd670968-665e-45c6-99e9-bb8446632008)
