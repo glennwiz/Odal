@@ -26,7 +26,7 @@ main :: proc() {
 		set_loc()
 
 		rl.BeginDrawing()
-		rl.ClearBackground(rl.BLACK)
+		rl.DrawRectangle(0, 0, 1000, 1000, {0, 0, 0, 20})
 		gem += 0.01
 		col = m.sin_f32(gem) * 255
 		draw_odal()
@@ -43,7 +43,7 @@ draw_spinner :: proc() {
 		x := 500 + m.cos_f32(angle) * radius
 		y := 400 + m.sin_f32(angle) * radius
 
-		rl.DrawCircle(i32(x), i32(y), 5, rl.YELLOW)
+		rl.DrawCircle(i32(x), i32(y), 5, rl.ColorFromHSV(gem * 100, 1, 1))
 	}
 }
 
@@ -78,13 +78,13 @@ draw_odal :: proc() {
 
 	for l_point, c in line_points_l {
 		if c < len(line_points_l) - 1 {
-			rl.DrawLineV(l_point, line_points_l[c + 1], rl.YELLOW)
+			rl.DrawLineEx(l_point, line_points_l[c + 1], 5, rl.ColorFromHSV(gem * 250, 1, 1))
 		}
 	}
 
 	for r_point, c in line_points_r {
 		if c < len(line_points_r) - 1 {
-			rl.DrawLineV(r_point, line_points_r[c + 1], rl.YELLOW)
+			rl.DrawLineEx(r_point, line_points_r[c + 1], 5, rl.ColorFromHSV(gem * 250, 1, 1))
 		}
 	}
 }
