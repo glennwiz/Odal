@@ -13,6 +13,7 @@ ly: f32 = 600
 flipped := false
 done := false
 
+radius: f32 = 100
 gem: f32 = 0.01
 col: f32
 main :: proc() {
@@ -38,6 +39,10 @@ main :: proc() {
 
 draw_spinner :: proc() {
 
+	x := 500 + m.cos_f32(gem) * radius
+	y := 500 + m.sin_f32(gem) * radius
+
+	rl.DrawCircle(i32(x), i32(y), 5, rl.YELLOW)
 }
 
 set_loc :: proc() {
